@@ -1,0 +1,23 @@
+import Promise from 'Uiyee/Promise';
+import Database from 'Uiyee/Db/Database';
+
+export default class ${className}
+{
+
+    private database: Database;
+    private data: ${className}Interface;
+
+    constructor(database: Database, data: ${className}Interface)
+    {
+       this.database = database;
+       this.data = data;
+    }
+
+    ${methods}
+
+}
+
+export interface ${className}Interface
+{
+${interface}
+}

@@ -1,0 +1,9 @@
+    public get${Field}(): ${type}
+    {
+        return this.data.${field};
+    }
+
+    public set${Field}(${field}: ${type}): void
+    {
+        this.data.${field} = ${field}
+    }
