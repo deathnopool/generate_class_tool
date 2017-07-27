@@ -3,8 +3,8 @@
 import os
 from string import Template 
 
-className = 'Student'
-fieldNames = [{'id': "number"}, {'name': "string"}, {'age': "number"}, {'gender': "number"}]
+className = 'Category'
+fieldNames = [{'id': "number"}, {'parentId': "number"}, {'name': "string"}, {"description": "string"},{"commonId": "number"},{'creatorId': "number"}, {'createTime': "number"}, {"updatorId": 'number'}, {'updateTime': 'number'}, {'syncTime': 'number'}, {'disabled': 'number'}]
 destDir = './'+className
 classFileName = destDir + '/' + className + ".server.ts"
 methodsCode = ''
@@ -18,7 +18,7 @@ classTempt= ''
 
 for field in fieldNames:
     fName = field.keys()[0]
-    FName = fName.capitalize()
+    FName = fName[0].upper() + fName[1: len(fName)]
     tName = field.values()[0]
     methodsCode += '\n' + fieldTempt.substitute(field=fName, type=tName, Field=FName)
     interfaceCode += interfaceTempt.substitute(field=fName, type=tName)
