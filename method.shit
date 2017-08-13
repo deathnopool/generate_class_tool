@@ -5,5 +5,5 @@
 
     public set${Field}(${field}: ${type}): void
     {
-        this.data.${field} = ${field}
+        this.data.${field} = ${field};
     }

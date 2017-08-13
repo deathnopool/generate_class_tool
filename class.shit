@@ -1,19 +1,29 @@
 import Promise from 'Uiyee/Promise';
 import Database from 'Uiyee/Db/Database';
+import Manager from 'yourModule/Manager';
 
 export default class ${className}
 {
 
+    private manager: Manager;
     private database: Database;
     private data: ${className}Interface;
 
-    constructor(database: Database, data: ${className}Interface)
+    constructor(manager: Manager, database: Database, data: object)
     {
-       this.database = database;
-       this.data = data;
+        this.manager = manager;
+        this.database = database;
+        this.data = {
+
+        };
     }
 
     ${methods}
+
+    public save(userSession?: any): Promise
+    {
+        throw new Error('method does not implement');
+    }
 
 }
 

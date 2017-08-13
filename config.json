@@ -1,0 +1,11 @@
+{
+    "database": "JlbCommunity",
+    "user": "michael",
+    "password": "sb123456",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "schema": "JlbCommunity",
+    "table": "Owners",
+    "class": "Owner",
+    "extension": ".server.ts"
+}
