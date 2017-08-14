@@ -14,7 +14,7 @@ export default class ${className}
         this.manager = manager;
         this.database = database;
         this.data = {
-
+            ${data}
         };
     }
 

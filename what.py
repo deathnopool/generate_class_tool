@@ -33,9 +33,12 @@ classFileName = destDir + '/' + className + EXTENSION
 methodsCode = ''
 classCode = ''
 interfaceCode = ''
+dataCode = ''
 
 f = open('./method.shit', 'r')
 fieldTempt = Template(f.read())
+f = open('./data.shit', 'r')
+dataTempt = Template(f.read())
 interfaceTempt = Template('    ${field}: ${type},\n')
 classTempt= ''
 
@@ -46,15 +49,24 @@ def translateType(t):
         return 'string'
     return 'object'
 
+def translateValue(t):
+    if t=='number':
+        return '0'
+    elif t=='string':
+        return '\'\''
+    else:
+        return '{}'
+
 for field in fieldNames:
     fName = field[0]
     FName = fName[0].upper() + fName[1: len(fName)]
     tName = translateType(field[1])
     methodsCode += '\n' + fieldTempt.substitute(field=fName, type=tName, Field=FName)
-    interfaceCode += interfaceTempt.substitute(field=fName, type=tName)
+    interfaceCode +=  interfaceTempt.substitute(field=fName, type=tName)
+    dataCode += dataTempt.substitute(field=fName, defaultValue=translateValue(tName)) + '\n'
 f = open('./class.shit', 'r')
 classTempt = Template(f.read())
-classCode = classTempt.substitute(className=className, methods=methodsCode, interface=interfaceCode)
+classCode = classTempt.substitute(className=className, methods=methodsCode, interface=interfaceCode, data=dataCode)
 f.close()
 
 if True!=os.path.exists(destDir):

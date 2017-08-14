@@ -1,7 +1,7 @@
 {
     "database": "JlbCommunity",
-    "user": "michael",
-    "password": "sb123456",
+    "user": "test",
+    "password": "pass",
     "host": "127.0.0.1",
     "port": "5432",
     "schema": "JlbCommunity",
